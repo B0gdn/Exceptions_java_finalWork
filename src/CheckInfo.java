@@ -72,7 +72,7 @@ public class CheckInfo {
     public boolean checkResult() {
         parseArray();
         try {
-            if(surName != null && name != null && patronymic != null && birthDay != null && phoneNumber != null && gender != 0) {
+            if(surName != null && name != null && patronymic != null && birthDay != null && phoneNumber != 0 && gender!=0) {
                 System.out.printf("surname %s, name %s, p %s,birthday %s, phone %d, sex %s ", surName, name, patronymic, birthDay, phoneNumber, gender);
             }else{
                 throw new UncorrectedData();

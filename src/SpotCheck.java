@@ -26,11 +26,26 @@ public class SpotCheck extends CheckInfo {
         return false;
     }
 
-    private boolean isSex(Character s)throws UncorrectedGender {
+    private boolean isAlpha(String s) throws NotStringException{
+        if(s!=null&&s.matches("^[a-zA-Zа-яА-Я]*$")){
+            return true;
+        }else{
+            throw new NotStringException(s);
+        }
+    }
+
+    private boolean isGender(Character s)throws UncorrectedGender {
         if(s.equals('f')||s.equals('m')){
             return true;
         }else{
             throw new UncorrectedGender();
         }
     }
+
+    public boolean outCome() throws NotStringException, BirthdayException, UncorrectedGender {
+        if(isAlpha(surName) && isAlpha(name)&& isAlpha(patronymic)&&isBirthday(birthDay)&&isGender(gender)){
+            return true;
+        }else{return false;}
+    }
+
 }
