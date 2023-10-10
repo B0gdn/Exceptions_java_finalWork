@@ -6,8 +6,8 @@ public class FillArrayException extends Exception{
     }
 
     public String getMessage() {
-        String message = "Введено неверное количество данных.";
-        if(arr.length - 1 < 5) {
+        String message = "Вы ввели неверное количество данных.";
+        if(arr.length-1 < 5) {
             message += " Слишком мало";
         } else {message += " Слишком много";}
         return message;

@@ -6,7 +6,7 @@ public class CheckInfo {
     private String surName;
     private String patronymic;
     private String birthDay;
-    private String phoneNumber;
+    private int phoneNumber;
     private char gender;
     private ArrayList<String> array;
     public CheckInfo() {
@@ -29,7 +29,7 @@ public class CheckInfo {
         return birthDay;
     }
 
-    protected String getPhoneNumber() {
+    protected int getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -52,18 +52,21 @@ public class CheckInfo {
                 birthDay = array.get(i);
                 tempoArr.add(array.get(i));
             }
+            if (isNumeric(array.get(i)) && array.get(i).length() > 1) {
+                phoneNumber = Integer.parseInt(array.get(i));
+                tempoArr.add(array.get(i));
+            }
         }
         array.removeAll(tempoArr);
         surName = array.get(0);
         name = array.get(1);
         patronymic = array.get(2);
-        phoneNumber = array.get(3);
     }
 
     protected boolean isNumeric(String str) {
         try {
             int tempo = Integer.parseInt(str);
-        } catch (NumberFormatException | NullPointerException e) {
+        } catch (NumberFormatException | NullPointerException nfe) {
             return false;
         }
         return true;

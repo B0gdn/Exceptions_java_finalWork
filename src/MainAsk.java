@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class MainAsk {
     private boolean mainFlag = true;
     private final ArrayList<String> info = new ArrayList<>();
+
     public ArrayList<String> getInfo() {
         mainAsk();
         return info;
@@ -13,18 +14,22 @@ public class MainAsk {
     private ArrayList<String> mainAsk() {
         while (mainFlag) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Введите через пробел: Фамилию Имя Отчество, дату рождения(в формате dd.mm.yyyy), номер телефона, пол(f или m)");
+            System.out.println("Ввиедите через пробел: Фамилию Имя Отчество, дату рождения(в формате dd.mm.yyyy), номер телефона, пол(f или m). Для выхода введите 0.");
             String[] result = scanner.nextLine().trim().split(" ");
-            try{
-                if(result.length-1 == 5) {
+            if (result[0].equals("0")) {
+                System.out.println("Bye");
+                mainFlag = false;
+                return info;
+            }
+            try {
+                if (result.length - 1 == 5) {
                     info.addAll(Arrays.asList(result));
-                    System.out.println("Принято");
+                    System.out.println("Данные приняты к обработке");
                     mainFlag = false;
-                }else{
+                } else {
                     throw new FillArrayException(result);
                 }
-            }catch(FillArrayException e){
-                System.out.println(e.getMessage());
+            } catch (FillArrayException e) {
             }
         }
         return info;

@@ -5,7 +5,7 @@ public class NotStringException extends Exception{
 
     }
 
-    public String getMesage() {
+    public String getMessage() {
         String message = "В веденном " + checkString + " содержатся не только буквы";
         return message;
     }

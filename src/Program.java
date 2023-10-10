@@ -26,7 +26,7 @@ public class Program {
                             }
                         }
                     } catch (NotStringException e) {
-                        System.out.println(e.getMesage());
+                        System.out.println(e.getMessage());
                     } catch (BirthdayException e) {
                         System.out.println(e.getMessage());
                     } catch (UncorrectedGender e) {

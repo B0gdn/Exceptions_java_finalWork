@@ -3,9 +3,9 @@ public class StringRecordFormat extends CheckInfo{
     private String surName;
     private String patronymic;
     private String birthDay;
-    private String phoneNumber;
+    private int phoneNumber;
     private char gender;
-    public StringRecordFormat(String name, String surName, String patronymic, String birthDay, String phoneNumber, char gender){
+    public StringRecordFormat(String name, String surName, String patronymic, String birthDay, int phoneNumber, char gender){
         this.surName = surName;
         this.name = name;
         this.patronymic = patronymic;
